@@ -1,29 +1,15 @@
-//waits for the HTML document to fully load before fetching a partial HTML file for the header using AJAX
 document.addEventListener('DOMContentLoaded', function() {
+    // Fetch partials and load them into the DOM
     fetch('partials/header.html')
         .then(response => response.text())
         .then(html => {
             document.getElementById('header-container').innerHTML = html;
-            // Load the Header
-            const menuToggle = document.querySelector('.menu-toggle');
-            if (menuToggle) {
-                menuToggle.addEventListener('click', function() {
-                    var menu = document.querySelector('.menu');
-                    if (menu) {
-                        menu.classList.toggle('active');
-                    } else {
-                        console.error('The menu element was not found');
-                    }
-                });
-            } else {
-                console.error('The menu-toggle button was not found');
-            }
+            initMenuToggle(); // Initialize menu toggle after header is loaded
         })
         .catch(error => {
             console.error('Error loading header:', error);
         });
 
-    // Load the hero section
     fetch('partials/hero.html')
         .then(response => response.text())
         .then(html => {
@@ -31,21 +17,19 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             console.error('Error loading hero section:', error);
-    });
+        });
 
-    // Load the about section
     fetch('partials/about.html')
         .then(response => response.text())
         .then(html => {
             document.getElementById('about').innerHTML = html;
+            initSwiper(); //initialize Swiper here after about section is loaded
         })
         .catch(error => {
-            console.error('Error loading hero section:', error);
-    });
-});
+            console.error('Error loading about section:', error);
+        });
 
-// Set up an event listener that waits for the entire content of the webpage to be loaded.
-document.addEventListener('DOMContentLoaded', function() {
+    // Form submission event listener
     document.body.addEventListener('submit', function(event) {
         if (event.target.matches('#reservation-form')) {
             event.preventDefault(); // Prevent the default form submission
@@ -53,3 +37,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+function initMenuToggle() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            var menu = document.querySelector('.menu');
+            if (menu) {
+                menu.classList.toggle('active');
+            } else {
+                console.error('The menu element was not found');
+            }
+        });
+    } else {
+        console.error('The menu-toggle button was not found');
+    }
+}
+
+function initSwiper() {
+    // Ensure Swiper is only initialized if the required elements exist
+    if(document.querySelector('.swiper')) {
+        var mySwiper = new Swiper('.swiper', {
+          loop: false,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          breakpoints: {
+            768: {
+              enabled: false, // Disable Swiper at 768px and above
+            }
+          }
+        });
+    }
+}

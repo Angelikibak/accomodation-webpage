@@ -242,6 +242,13 @@ a:hover {
   margin: 0 auto;
   text-align: left;
 }
+@media (max-width: 768px) {
+  .about-section .about-text .text-columns {
+    flex-direction: column;
+    max-width: 100%;
+    margin: 0 20px;
+  }
+}
 .about-section .about-text .text-columns p {
   width: 45%;
   color: #000;
@@ -250,6 +257,14 @@ a:hover {
 }
 .about-section .about-text .text-columns p:first-child {
   margin-right: 5%;
+}
+@media (max-width: 768px) {
+  .about-section .about-text .text-columns p {
+    width: 100%;
+  }
+}
+.about-section .gallery-container {
+  display: none;
 }
 .about-section .gallery {
   display: flex;
@@ -415,6 +430,22 @@ a:hover {
 }
 .about-section .gallery .right-column .right-column-single .image-container .overlay:hover {
   opacity: 1;
+}
+.about-section .carousel {
+  display: block;
+}
+.about-section .carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (min-width: 768px) {
+  .about-section .gallery-container {
+    display: block;
+  }
+  .about-section .carousel {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
