@@ -1,0 +1,420 @@
+nav.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #a80000;
+  padding: 0.5rem 1rem;
+}
+nav.navbar .logo {
+  display: flex;
+  flex-direction: column;
+  font-family: "Helvetica", sans-serif;
+  color: #fff;
+  font-size: 1rem;
+  width: 3rem;
+}
+@media (min-width: 768px) {
+  nav.navbar .logo {
+    width: 10rem;
+  }
+}
+nav.navbar .logo img {
+  height: 2rem;
+  width: auto;
+}
+nav.navbar .logo span {
+  padding: 0.5rem;
+  display: none;
+}
+@media (min-width: 768px) {
+  nav.navbar .logo span {
+    display: block;
+  }
+}
+nav.navbar .logo a {
+  text-align: left;
+  color: #fff;
+}
+@media (min-width: 768px) {
+  nav.navbar .logo a {
+    display: block;
+    text-align: center;
+  }
+}
+nav.navbar .logo a:hover {
+  font-weight: normal;
+  color: #fff;
+  text-decoration: none;
+}
+nav.navbar .menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #a80000;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  transform: translateY(40%);
+  transition: transform 0.3s ease-in-out;
+}
+@media (min-width: 768px) {
+  nav.navbar .menu {
+    flex-direction: row;
+    position: static;
+    transform: translateY(0);
+    justify-content: flex-end;
+  }
+}
+nav.navbar .menu .menu.active {
+  transform: translateY(0);
+}
+nav.navbar .menu-item {
+  color: #fff;
+  padding: 0 1rem;
+  text-decoration: none;
+  font-family: "Helvetica", sans-serif;
+  display: block;
+  line-height: 2;
+}
+@media (max-width: 768px) {
+  nav.navbar .menu-item {
+    display: none;
+  }
+}
+nav.navbar .menu-item:hover {
+  text-decoration: underline;
+}
+nav.navbar .menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  nav.navbar .menu-toggle {
+    display: flex;
+  }
+}
+
+.menu.active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #a80000;
+}
+.menu.active .menu-item {
+  display: block;
+  text-align: center;
+}
+
+body {
+  font-family: "Helvetica", sans-serif;
+  color: #000;
+  margin: 0px;
+}
+
+a {
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+}
+a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #ccc;
+}
+
+.hero {
+  background-image: url("/images/hero.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 55px 0;
+}
+@media (max-width: 768px) {
+  .hero {
+    justify-content: center;
+    padding-left: 0;
+  }
+}
+.hero .reservation-form {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-sizing: border-box;
+  height: auto;
+  position: relative;
+  left: 20%;
+}
+@media (max-width: 768px) {
+  .hero .reservation-form {
+    width: 90%;
+    left: 0;
+  }
+}
+.hero .reservation-form h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .hero .reservation-form h2 {
+    font-size: 1.2rem;
+  }
+}
+.hero .reservation-form label {
+  display: block;
+  color: #fff;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+}
+.hero .reservation-form input[type=text],
+.hero .reservation-form input[type=date],
+.hero .reservation-form input[type=number] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 4px;
+}
+@media (max-width: 768px) {
+  .hero .reservation-form input[type=text],
+  .hero .reservation-form input[type=date],
+  .hero .reservation-form input[type=number] {
+    padding: 8px;
+  }
+}
+.hero .reservation-form button {
+  width: 100%;
+  background-color: transparent;
+  color: #fff;
+  padding: 10px 20px;
+  border: #a80000 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.hero .reservation-form button:hover {
+  background-color: #a80000;
+}
+@media (max-width: 768px) {
+  .hero .reservation-form button {
+    padding: 8px 16px;
+  }
+}
+
+.about-section {
+  padding: 40px 0;
+}
+.about-section .about-text {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.about-section .about-text h1 {
+  color: #000;
+  font-size: 2rem;
+  margin: 5px;
+}
+.about-section .about-text h1::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 2px;
+  background-color: #a80000;
+  margin-top: 5px;
+}
+.about-section .about-text span {
+  font-size: 0.8rem;
+}
+.about-section .about-text .text-columns {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 60%;
+  margin: 0 auto;
+  text-align: left;
+}
+.about-section .about-text .text-columns p {
+  width: 45%;
+  color: #000;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.about-section .about-text .text-columns p:first-child {
+  margin-right: 5%;
+}
+.about-section .gallery {
+  display: flex;
+  width: 1000px;
+  height: 600px;
+  margin: 0 auto;
+}
+.about-section .gallery .left-column, .about-section .gallery .right-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.about-section .gallery .left-column {
+  flex: 0 0 37%;
+}
+.about-section .gallery .left-column .image-container {
+  position: relative;
+  overflow: hidden;
+}
+.about-section .gallery .left-column .image-container:first-child {
+  height: 70%;
+}
+.about-section .gallery .left-column .image-container:last-child {
+  height: 30%;
+}
+.about-section .gallery .left-column .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-section .gallery .left-column .image-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.about-section .gallery .left-column .image-container .overlay p {
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  font-size: 1rem;
+}
+.about-section .gallery .left-column .image-container .overlay p::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background-color: #a80000;
+  margin-top: 5px;
+}
+.about-section .gallery .left-column .image-container .overlay:hover {
+  opacity: 1;
+}
+.about-section .gallery .right-column {
+  flex: 0 0 63%;
+}
+.about-section .gallery .right-column .right-column-row {
+  display: flex;
+  height: 40%;
+}
+.about-section .gallery .right-column .right-column-row .image-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.about-section .gallery .right-column .right-column-row .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-section .gallery .right-column .right-column-row .image-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.about-section .gallery .right-column .right-column-row .image-container .overlay p {
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  font-size: 1rem;
+}
+.about-section .gallery .right-column .right-column-row .image-container .overlay p::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background-color: #a80000;
+  margin-top: 5px;
+}
+.about-section .gallery .right-column .right-column-row .image-container .overlay:hover {
+  opacity: 1;
+}
+.about-section .gallery .right-column .right-column-single {
+  height: 60%;
+}
+.about-section .gallery .right-column .right-column-single .image-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.about-section .gallery .right-column .right-column-single .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-section .gallery .right-column .right-column-single .image-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.about-section .gallery .right-column .right-column-single .image-container .overlay p {
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  font-size: 1rem;
+}
+.about-section .gallery .right-column .right-column-single .image-container .overlay p::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background-color: #a80000;
+  margin-top: 5px;
+}
+.about-section .gallery .right-column .right-column-single .image-container .overlay:hover {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=styles.css.map */

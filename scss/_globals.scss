@@ -1,0 +1,19 @@
+@import 'variables';
+
+body {
+  font-family: $font-stack;
+  color: $text-color;
+  margin: 0px;
+}
+
+a {
+  color: $text-color-white;
+  font-size: 1rem;
+  text-decoration: none; 
+
+  &:hover {
+    font-weight: bold;
+    text-decoration: underline;
+    color: $link-hover-color; 
+  }
+}
