@@ -650,7 +650,7 @@ a:hover {
   color: #fff;
 }
 .site-footer .footer-content {
-  padding: 20px 0;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -663,7 +663,7 @@ a:hover {
   align-items: center;
 }
 .site-footer .footer-content .footer-logo img {
-  height: 50px;
+  height: 2rem;
 }
 .site-footer .footer-content .footer-logo span {
   margin-top: 5px;
