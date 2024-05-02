@@ -1,3 +1,5 @@
+@import 'variables';
+
 .accommodations {
     display: flex;
     flex-direction: column;
@@ -24,43 +26,45 @@
 
             @media (min-width: 768px) {
                 flex-direction: row; // Horizontal layout on larger screens
-                align-items: stretch; // Ensures children stretch to fill the parent height
+                position: relative; // Set relative positioning for parent
+                height: 450px; // Fixed height for the whole item
+                overflow: hidden; // Ensures nothing overflows the fixed height
             }
 
             .accommodation-info {
                 background-color: $dark-grey; // Dark grey background
                 color: $text-color-white; // White text
-                padding: 20px;
                 width: 100%; // Full width on mobile
-                align-items: end;
-                position: relative; // Positioning context for pseudo-elements
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                text-align: left;
-
+                position: absolute; // Absolute positioning for overlay
+                z-index: 2; // Ensures it is above the image
+                transition: all 0.3s ease; // Smooth transition for expansion
+                left: 0;
+                top: 0;
+                bottom: 0;
                 @media (min-width: 768px) {
-                    flex: 0 30%; // Takes up 30% of the container
-                    
+                    width: 40%; // Initial width
+                    &:hover {
+                        width: 60%; // Width increases on hover
+                    }
                 }
-
                 h3 {
-                    font-size: 24px;
+                    font-size: $text-large;
                     margin: 0 0 10px 0;
                 }
                 p {
                     margin: 0 0 10px 0;
+                    font-size: $text-large;
                 }
                 .additional-text, .learn-more-button {
                     display: none; // Initially hidden
                 }
-                &:hover {
-                    .additional-text, .learn-more-button {
-                        display: block; // Show on hover
-                    }
-                }
                 .accommodation-info-top {
                     text-align: right;
+                }
+                .text-container{
+                    position: relative;
+                    top: 30%;
+                    right: 20%;
                 }
                 .underline {
                     width: 480px;
@@ -68,23 +72,47 @@
                     background-color: $brand-color; // Thematic color for the underline
                     margin: 10px 0;
                     position: relative;
-                    left: 58%;
+                    left: 65%;
                 }
+
+                &:hover {
+                    .accommodation-info-top {
+                        text-align: left;
+                    }
+                    .additional-text, .learn-more-button {
+                        display: block; // Show on hover
+                        text-align: left;
+                        font-size: $default-text-size;
+                    }
+                    .additional-text {
+                        width: 50%;
+                    }
+                    .text-container{
+                        right: 0;
+                        left: 20%;
+                    }
+                    .underline {
+                        width: 780px;
+                        left: 0;
+                    }
+                }
+                
+                
             }
 
             .accommodation-image {
+                position: absolute; // Ensures image stays in place
+                width: 60%; // Initially takes 60% of the width
+                height: 100%; // Maintain the height as fixed by the parent
+                top: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1; // Under the text block
+
                 img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover; // Ensures the image covers the area nicely
-
-                    @media (min-width: 768px) {
-                        max-width: none; // Removes any max-width restriction
-                    }
-                }
-
-                @media (min-width: 768px) {
-                    flex: 0 70%; // Takes up 70% of the container
                 }
             }
         }
