@@ -28,7 +28,16 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error loading about section:', error);
         });
-
+    
+    fetch('partials/accommodations.html')
+    .then(response => response.text())
+    .then(html => {
+        document.getElementById('accommodations').innerHTML = html;
+    })
+    .catch(error => {
+        console.error('Error loading about section:', error);
+    });
+    
     // Form submission event listener
     document.body.addEventListener('submit', function(event) {
         if (event.target.matches('#reservation-form')) {

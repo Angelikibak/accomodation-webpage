@@ -1,0 +1,106 @@
+.accommodations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .accommodation-header {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .accommodation-list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .accommodation-item {
+            display: flex;
+            flex-direction: column; // Stack vertically on mobile
+            margin-bottom: 20px;
+            align-items: stretch;
+            width: 100%; 
+
+            @media (min-width: 768px) {
+                flex-direction: row; // Horizontal layout on larger screens
+                align-items: stretch; // Ensures children stretch to fill the parent height
+            }
+
+            .accommodation-info {
+                background-color: $dark-grey; // Dark grey background
+                color: $text-color-white; // White text
+                padding: 20px;
+                width: 100%; // Full width on mobile
+                align-items: end;
+                position: relative; // Positioning context for pseudo-elements
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: left;
+
+                @media (min-width: 768px) {
+                    flex: 0 30%; // Takes up 30% of the container
+                    
+                }
+
+                h3 {
+                    font-size: 24px;
+                    margin: 0 0 10px 0;
+                }
+                p {
+                    margin: 0 0 10px 0;
+                }
+                .additional-text, .learn-more-button {
+                    display: none; // Initially hidden
+                }
+                &:hover {
+                    .additional-text, .learn-more-button {
+                        display: block; // Show on hover
+                    }
+                }
+                .accommodation-info-top {
+                    text-align: right;
+                }
+                .underline {
+                    width: 480px;
+                    height: 2px;
+                    background-color: $brand-color; // Thematic color for the underline
+                    margin: 10px 0;
+                    position: relative;
+                    left: 58%;
+                }
+            }
+
+            .accommodation-image {
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover; // Ensures the image covers the area nicely
+
+                    @media (min-width: 768px) {
+                        max-width: none; // Removes any max-width restriction
+                    }
+                }
+
+                @media (min-width: 768px) {
+                    flex: 0 70%; // Takes up 70% of the container
+                }
+            }
+        }
+    }
+}
+
+.learn-more-button {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: $text-color-white;
+    border: $text-color-white 1px solid;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: darken($brand-color, 10%);
+    }
+}
