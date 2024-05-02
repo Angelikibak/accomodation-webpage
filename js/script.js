@@ -37,6 +37,15 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error => {
         console.error('Error loading about section:', error);
     });
+
+    fetch('partials/footer.html')
+    .then(response => response.text())
+    .then(html => {
+        document.getElementById('footer-container').innerHTML = html;
+    })
+    .catch(error => {
+        console.error('Error loading footer:', error);
+    });
     
     // Form submission event listener
     document.body.addEventListener('submit', function(event) {

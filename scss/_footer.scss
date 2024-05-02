@@ -1,0 +1,93 @@
+@import 'variables';
+
+.site-footer {
+    background-color: $brand-color; // Dark maroon, adjust the color as needed
+    color: $text-color-white; // White text color
+
+    .footer-content {
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        
+        .footer-logo {
+            flex: 0 0 auto; // Ensures logo section does not grow or shrink
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img {
+                height: 50px;
+            }
+            span {
+                margin-top: 5px;
+            }
+        }
+
+        .footer-center {
+            flex: 1 0 auto; // Takes up the rest of the space
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            
+            .footer-links {
+                margin-bottom: 10px;
+                a {
+                    color: $text-color-white;
+                    text-decoration: none;
+                    font-size: 16px;
+                    margin: 0 10px; 
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .footer-address {
+                span {
+                    padding-right: 5px;
+                    margin: 0;
+                    font-size: 14px;
+                    border-right: 1px solid $text-color-white;
+                }
+            } 
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .site-footer .footer-content {
+        flex-direction: column;
+        align-items: center;
+        
+        .footer-logo, .footer-center {
+            text-align: center;
+            width: 100%;
+            padding-bottom: 30px;
+        }
+
+        .footer-center {
+            .footer-links {
+                display: flex;
+                order: 2;
+                flex-direction: column;
+                a {
+                    padding-bottom: 5px
+                }
+            }
+            .footer-address {
+                display: flex;
+                order: 1;
+                flex-direction: column;
+                border-bottom: $text-color-white 1px solid;
+                margin-top: 20px;
+                span {
+                    border-right: none;
+                    padding-bottom: 5px;
+                }
+            }
+        }
+    }
+}
