@@ -459,6 +459,25 @@ a:hover {
   text-align: center;
   margin-bottom: 30px;
 }
+.accommodations .accommodation-header h2 {
+  color: #000;
+  font-size: 2rem;
+  margin: 5px;
+}
+.accommodations .accommodation-header h2::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 2px;
+  background-color: #a80000;
+  margin-top: 5px;
+}
+.accommodations .accommodation-header span {
+  font-size: 0.8rem;
+}
 .accommodations .accommodation-list {
   width: 100%;
   display: flex;
@@ -483,15 +502,17 @@ a:hover {
   background-color: #333;
   color: #fff;
   width: 100%;
-  position: absolute;
+  position: relative;
   z-index: 2;
   transition: all 0.3s ease;
+  padding: 20px 0;
   left: 0;
   top: 0;
   bottom: 0;
 }
 @media (min-width: 768px) {
   .accommodations .accommodation-list .accommodation-item .accommodation-info {
+    position: absolute;
     width: 40%;
   }
   .accommodations .accommodation-list .accommodation-item .accommodation-info:hover {
@@ -507,23 +528,47 @@ a:hover {
   font-size: 1.5rem;
 }
 .accommodations .accommodation-list .accommodation-item .accommodation-info .additional-text, .accommodations .accommodation-list .accommodation-item .accommodation-info .learn-more-button {
-  display: none;
+  display: block;
+  font-size: 0.8rem;
+}
+@media (min-width: 768px) {
+  .accommodations .accommodation-list .accommodation-item .accommodation-info .additional-text, .accommodations .accommodation-list .accommodation-item .accommodation-info .learn-more-button {
+    display: none;
+  }
 }
 .accommodations .accommodation-list .accommodation-item .accommodation-info .accommodation-info-top {
-  text-align: right;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .accommodations .accommodation-list .accommodation-item .accommodation-info .accommodation-info-top {
+    text-align: right;
+  }
 }
 .accommodations .accommodation-list .accommodation-item .accommodation-info .text-container {
-  position: relative;
-  top: 30%;
-  right: 20%;
+  right: 0;
+  padding: 20px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .accommodations .accommodation-list .accommodation-item .accommodation-info .text-container {
+    position: relative;
+    top: 30%;
+    right: 20%;
+  }
 }
 .accommodations .accommodation-list .accommodation-item .accommodation-info .underline {
-  width: 480px;
+  width: 80%;
   height: 2px;
   background-color: #a80000;
   margin: 10px 0;
   position: relative;
-  left: 65%;
+  left: 10%;
+}
+@media (min-width: 768px) {
+  .accommodations .accommodation-list .accommodation-item .accommodation-info .underline {
+    width: 480px;
+    left: 65%;
+  }
 }
 .accommodations .accommodation-list .accommodation-item .accommodation-info:hover .accommodation-info-top {
   text-align: left;
@@ -545,13 +590,19 @@ a:hover {
   left: 0;
 }
 .accommodations .accommodation-list .accommodation-item .accommodation-image {
-  position: absolute;
-  width: 60%;
+  position: relative;
+  width: 100%;
   height: 100%;
   top: 0;
   right: 0;
   bottom: 0;
   z-index: 1;
+}
+@media (min-width: 768px) {
+  .accommodations .accommodation-list .accommodation-item .accommodation-image {
+    position: absolute;
+    width: 60%;
+  }
 }
 .accommodations .accommodation-list .accommodation-item .accommodation-image img {
   width: 100%;

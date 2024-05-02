@@ -10,6 +10,25 @@
         width: 100%;
         text-align: center;
         margin-bottom: 30px;
+        h2 {
+            color: $text-color;
+            font-size: $H1;
+            margin: 5px;
+                &::after {
+                content: ''; 
+                display: block;
+                position: absolute;
+                left: 50%; 
+                transform: translateX(-50%);
+                width: 200px; 
+                height: 2px; 
+                background-color: $brand-color; 
+                margin-top: 5px; 
+            }
+        }
+        span {
+            font-size: $text-small;
+        }
     }
 
     .accommodation-list {
@@ -19,32 +38,34 @@
 
         .accommodation-item {
             display: flex;
-            flex-direction: column; // Stack vertically on mobile
+            flex-direction: column; 
             margin-bottom: 20px;
             align-items: stretch;
-            width: 100%; 
+            width: 100%;
 
             @media (min-width: 768px) {
-                flex-direction: row; // Horizontal layout on larger screens
-                position: relative; // Set relative positioning for parent
-                height: 450px; // Fixed height for the whole item
-                overflow: hidden; // Ensures nothing overflows the fixed height
+                flex-direction: row; 
+                position: relative;
+                height: 450px;
+                overflow: hidden;
             }
 
             .accommodation-info {
-                background-color: $dark-grey; // Dark grey background
-                color: $text-color-white; // White text
-                width: 100%; // Full width on mobile
-                position: absolute; // Absolute positioning for overlay
-                z-index: 2; // Ensures it is above the image
-                transition: all 0.3s ease; // Smooth transition for expansion
+                background-color: $dark-grey;
+                color: $text-color-white;
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                transition: all 0.3s ease;
+                padding: 20px 0; 
                 left: 0;
                 top: 0;
                 bottom: 0;
                 @media (min-width: 768px) {
-                    width: 40%; // Initial width
+                    position: absolute;
+                    width: 40%;
                     &:hover {
-                        width: 60%; // Width increases on hover
+                        width: 60%;
                     }
                 }
                 h3 {
@@ -56,23 +77,39 @@
                     font-size: $text-large;
                 }
                 .additional-text, .learn-more-button {
-                    display: none; // Initially hidden
+                    display: block;
+                    font-size: $text-small;
+                    @media (min-width: 768px) {
+                        display: none;
+                    }
                 }
                 .accommodation-info-top {
-                    text-align: right;
+                    text-align: center;
+                    @media (min-width: 768px) {
+                        text-align: right;
+                    }
                 }
                 .text-container{
-                    position: relative;
-                    top: 30%;
-                    right: 20%;
+                    right: 0;
+                    padding: 20px;
+                    text-align: center;
+                    @media (min-width: 768px) {
+                        position: relative;
+                        top: 30%;
+                        right: 20%;
+                    }
                 }
                 .underline {
-                    width: 480px;
+                    width: 80%;
                     height: 2px;
-                    background-color: $brand-color; // Thematic color for the underline
+                    background-color: $brand-color;
                     margin: 10px 0;
                     position: relative;
-                    left: 65%;
+                    left: 10%;
+                    @media (min-width: 768px) {
+                        width: 480px;
+                        left: 65%;
+                    }
                 }
 
                 &:hover {
@@ -80,7 +117,7 @@
                         text-align: left;
                     }
                     .additional-text, .learn-more-button {
-                        display: block; // Show on hover
+                        display: block;
                         text-align: left;
                         font-size: $default-text-size;
                     }
@@ -101,18 +138,22 @@
             }
 
             .accommodation-image {
-                position: absolute; // Ensures image stays in place
-                width: 60%; // Initially takes 60% of the width
-                height: 100%; // Maintain the height as fixed by the parent
+                position: relative;
+                width: 100%;
+                height: 100%;
                 top: 0;
                 right: 0;
                 bottom: 0;
-                z-index: 1; // Under the text block
+                z-index: 1;
+                @media (min-width: 768px) {
+                    position: absolute;
+                    width: 60%;
+                }
 
                 img {
                     width: 100%;
                     height: 100%;
-                    object-fit: cover; // Ensures the image covers the area nicely
+                    object-fit: cover;
                 }
             }
         }
